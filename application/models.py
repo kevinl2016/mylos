@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Address(models.Model):
     COUNTRY_CHOICES = (
         ('AU', 'Australia'),
@@ -22,6 +20,6 @@ class Applicant(models.Model):
     last_name = models.CharField(max_length=50)
     income = models.DecimalField(max_digits=15,decimal_places=2)
     address = models.ManyToManyField(Address, related_name='appaddress')
-    
+
     def __str__(self):
         return self.first_name + ',' + self.last_name
